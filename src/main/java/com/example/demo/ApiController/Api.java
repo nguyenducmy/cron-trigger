@@ -23,7 +23,7 @@ public class Api {
         Runnable task = () -> System.out.println("Task executed at: " + Instant.now());
 
         // Schedule task to run 3 times with a 15-minute interval
-        return schedulerService.scheduleTask(task, 8, 1 * 60 * 1000); // 1 minutes in milliseconds
+        return schedulerService.scheduleTask(task, 3, 1 * 60 * 1000); // 1 minutes in milliseconds
     }
 
     @GetMapping("/cancel")
