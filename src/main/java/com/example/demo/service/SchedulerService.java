@@ -20,18 +20,9 @@ public class SchedulerService {
     private final AtomicInteger executionCount = new AtomicInteger(0);
 
     public String scheduleTask(Runnable task, int totalExecutions, long intervalInMillis) {
-
-
-         // Reset the execution count
-        taskScheduler.
         futureTask = taskScheduler.scheduleAtFixedRate(() -> {
             int currentExecution = executionCount.incrementAndGet();
-
-            // Execute the task
-            task.run();
             System.out.printf("TASK IS RUNNING !!" +  currentExecution);
-
-            // Stop after the required number of executions
             if (currentExecution >= totalExecutions) {
                 futureTask.cancel(false);
             }
