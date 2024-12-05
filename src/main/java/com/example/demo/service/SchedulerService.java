@@ -24,8 +24,9 @@ public class SchedulerService {
             int currentExecution = executionCount.incrementAndGet();
             System.out.printf("TASK IS RUNNING !!" +  currentExecution);
             if (currentExecution >= totalExecutions) {
-                futureTask.cancel(false);
                 System.out.printf("task cancelled");
+                futureTask.cancel(false);
+
             }
         }, Instant.now(), Duration.ofMillis(intervalInMillis));
 
